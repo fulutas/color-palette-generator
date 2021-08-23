@@ -12,6 +12,10 @@ let colorSelect = 'soft'
 let dropdownContent = document.querySelector('.dropdown-content')
 let colorData = dropdownContent.getElementsByClassName('color')
 
+
+let bgCheck = document.getElementById('background-check')
+
+
 // Renk seçimi
 for(let i = 0; i < colorData.length; i++){
   colorData[i].addEventListener('click', function(){
@@ -118,14 +122,22 @@ function generateColor() {
 
 
 window.addEventListener("keypress", (e) => {
-  if (e.keyCode === 32) {   // Space
+
+  if (e.keyCode === 32) {   // Space tuşu
     generateColorPalette();
-  } else if(e.keyCode === 99 && currentElem){ // C 
+  } else if(e.keyCode === 99 && currentElem){ // C tuşu
     let targetInput = currentElem.querySelector('input[name="color"]'); // ul içinde arama yapar
     targetInput.select();
     document.execCommand("copy"); // içeriği kopyalar
     notification(`Color <b>${targetInput.value}</b> copied to your clipboard`);
-    // document.body.style.backgroundColor = targetInput.valueccccc
+
+    if(bgCheck.checked){
+      document.body.style.backgroundColor = targetInput.value
+    } else {
+      bgCheck.checked = false;
+      document.body.style.backgroundColor = '#e8ecf3'
+    }
+      
   }
 
   e.preventDefault()

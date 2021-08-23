@@ -191,6 +191,23 @@ ul.color-palette {
     }
   }
 
+  .background-checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      font-size: 18px;
+      margin-right: 5px;
+      color: #6b6c91;
+    }
+
+    input {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
   p {
     font-size: 18px;
     color: #0c1226;
