@@ -4,6 +4,24 @@
 
 let colorPalette = document.getElementById("color-palette");
 let currentElem; // Seçilen li element
+let genIcon = document.getElementById("genIcon")
+
+
+let colorSelect = 'soft'
+
+let dropdownContent = document.querySelector('.dropdown-content')
+let colorData = dropdownContent.getElementsByClassName('color')
+
+// Renk seçimi
+for(let i = 0; i < colorData.length; i++){
+  colorData[i].addEventListener('click', function(){
+    colorSelect = colorData[i].innerText
+    generateColorPalette()
+    let current = document.getElementsByClassName('active')
+    current[0].className = current[0].className.replace(" active", "")
+    this.className += " active"
+  })
+}
 
 function notification(msg) {
   let old_div = document.querySelector(".alert");
@@ -30,11 +48,15 @@ function notification(msg) {
 function generateColorPalette() {
   colorPalette.innerHTML = "";
 
+
+  genIcon.classList.add('generateIcon')
+
+
   // Use color-scheme-js library
   let scheme = new ColorScheme;
   scheme.from_hue(Math.random() * 1000)         
         .scheme('tetrade')   
-        .variation('soft');
+        .variation(colorSelect.toLocaleLowerCase());
 
   for (let i = 1; i <= 5; i++) {
 
@@ -74,6 +96,11 @@ function generateColorPalette() {
       document.execCommand("copy"); // içeriği kopyalar
       notification(`Color <b>${targetInput.value}</b> copied to your clipboard`);
     });
+
+    setTimeout(() => {
+      genIcon.classList.remove("generateIcon");
+    }, 500);
+  
   }
 }
 

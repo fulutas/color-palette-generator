@@ -5,23 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color Palette Generator</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="scss/main.css" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
 
   </head>
   <body>
     <!-- <div class="alert">Color <b>#F9ACA7</b>copied to your clipboard.</div> -->
-    <h3>Color palette generator</h3>
+    <h3>Renk Paleti Oluşturucu</h3>
+
+    <div class="dropdown">
+        <button class="dropbtn">Renk Seçimi</button>
+        <div class="dropdown-content">
+          <a href="#" class="color">pastel</a>
+          <a href="#" class="color active">soft</a>
+          <a href="#" class="color">light</a>
+          <a href="#" class="color">hard</a>
+          <a href="#" class="color">pale</a>
+        </div>
+      </div>
 
     <ul class="color-palette" id="color-palette"></ul>
 
     <div class="action">
-      <button type="button" onclick="generateColorPalette()">Generate Palette</button>
-      <p>Or just press the "Spacebar" to generate new plattes.</p>
+      <button type="button" id="btn" onclick="generateColorPalette()">
+        <div id="genIcon">🎨</div>
+        Palet Oluştur
+    </button>
+      <p>Veya yeni paletler oluşturmak için "Space" tuşuna basın.</p>
     </div>
 
     <div class="shortcut-text">
-      Click to copy individual color press "C" to copy palette
+        Tek tek rengi kopyalamak için tıklayın veya üzerine gelip kopyalamak için "C"ye basın
     </div>
     
     <a href="https://github.com/fulutas/color-palette-generator" target="_blank">
