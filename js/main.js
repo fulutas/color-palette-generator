@@ -55,7 +55,7 @@ function generateColorPalette() {
   // Use color-scheme-js library
   let scheme = new ColorScheme;
   scheme.from_hue(Math.random() * 1000)         
-        .scheme('tetrade')   
+        .scheme('analogic')   
         .variation(colorSelect.toLocaleLowerCase());
 
   for (let i = 1; i <= 5; i++) {
@@ -104,6 +104,7 @@ function generateColorPalette() {
   }
 }
 
+// _old
 function generateColor() {
   let str = "abcdef0123456789";
   let color = "#";

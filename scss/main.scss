@@ -66,10 +66,19 @@ h3 {
 }
 
 .color.active{
-  color: orange!important;
+  color: #FFF;
+  background-color: #7e6cca;
+
+  &:hover{
+    opacity: 1;
+  }
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #7e6cca;
+  opacity: 0.5;
+  color: #FFF;
+}
 
 .dropdown:hover .dropdown-content {display: block;}
 
